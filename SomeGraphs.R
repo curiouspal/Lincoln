@@ -96,7 +96,7 @@ ggplot(data=portland, aes(Date, Land.Value1)) + geom_point(aes(color=MSA)) +
     legend.text = element_text(colour="#000033", size = 18)
   ) 
 
-ggplot(data=portland, aes(Date, Land.Share..Pct.)) + geom_point(aes(color=MSA)) + 
+ggplot(data=portland, aes(as.numeric(Date), as.numeric(Land.Share..Pct.))) + geom_line(stat="identity", aes(color=MSA)) + 
   theme(
     plot.title = element_text(size=20, face="bold", vjust=3, color="#000033"), 
     axis.text.x = element_text(size=12, angle = 90, hjust = 1, color="#000033"), 
