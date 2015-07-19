@@ -2,6 +2,7 @@
 library("ggplot2")
 allcities <- read.csv("landdata-msas-2015q1.csv")
 
+# Remove the "$" sign and the commas in between numbers and then converting the resulting number as numeric type data instead of a string.
 for(i in 1:length(allcities$Home.Value)) {
   b <- as.vector(strsplit(as.character(allcities$Home.Value[i]), "$", fixed = TRUE))
   allcities$Home.Value1[i] <- b[[1]][2]
@@ -44,7 +45,30 @@ portland <- subset(allcities, MSA=="PORTLAND" | MSA=="DENVER" | MSA=="BOSTON" & 
 
 
 
-ggplot(data=allcities, aes(Date, Land.Price.Index)) + geom_point() + 
+ggplot(data=allcities, aes(Date1, as.numeric(Land.Price.Index))) + geom_line() + 
+  theme(
+    plot.title = element_text(size=20, face="bold", vjust=3), 
+    axis.text.x = element_text(size=15, angle = 90, hjust = 1), 
+    axis.text.y = element_text(size=18), 
+    axis.title.x = element_text(color="#000033", size=18), 
+    axis.title.y = element_text(color="#000033", size=18, vjust=2),
+    legend.title=element_blank(),
+    legend.text = element_text(colour="#000033", size = 18)
+  ) + facet_wrap(~MSA)
+
+
+ggplot(data=allcities, aes(Date1, as.numeric(Home.Price.Index))) + geom_line() + 
+  theme(
+    plot.title = element_text(size=20, face="bold", vjust=3), 
+    axis.text.x = element_text(size=15, angle = 90, hjust = 1), 
+    axis.text.y = element_text(size=18), 
+    axis.title.x = element_text(color="#000033", size=18), 
+    axis.title.y = element_text(color="#000033", size=18, vjust=2),
+    legend.title=element_blank(),
+    legend.text = element_text(colour="#000033", size = 18)
+  ) + facet_wrap(~MSA)
+
+ggplot(data=allcities, aes(Date1, Land.Share1)) + geom_line() + 
   theme(
     plot.title = element_text(size=20, face="bold", vjust=3), 
     axis.text.x = element_text(size=5, angle = 90, hjust = 1), 
@@ -56,7 +80,8 @@ ggplot(data=allcities, aes(Date, Land.Price.Index)) + geom_point() +
   ) + facet_wrap(~MSA)
 
 
-ggplot(data=allcities, aes(Date, Home.Price.Index)) + geom_point() + 
+
+ggplot(data=allcities, aes(Date1, Home.Value1)) + geom_line() + 
   theme(
     plot.title = element_text(size=20, face="bold", vjust=3), 
     axis.text.x = element_text(size=5, angle = 90, hjust = 1), 
@@ -67,31 +92,7 @@ ggplot(data=allcities, aes(Date, Home.Price.Index)) + geom_point() +
     legend.text = element_text(colour="#000033", size = 18)
   ) + facet_wrap(~MSA)
 
-ggplot(data=allcities, aes(Date, Land.Share..Pct.)) + geom_point() + 
-  theme(
-    plot.title = element_text(size=20, face="bold", vjust=3), 
-    axis.text.x = element_text(size=5, angle = 90, hjust = 1), 
-    axis.text.y = element_text(size=18), 
-    axis.title.x = element_text(color="#000033", size=18), 
-    axis.title.y = element_text(color="#000033", size=18, vjust=2),
-    legend.title=element_blank(),
-    legend.text = element_text(colour="#000033", size = 18)
-  ) + facet_wrap(~MSA)
-
-
-
-ggplot(data=allcities, aes(Date, Home.Value1)) + geom_point() + 
-  theme(
-    plot.title = element_text(size=20, face="bold", vjust=3), 
-    axis.text.x = element_text(size=5, angle = 90, hjust = 1), 
-    axis.text.y = element_text(size=18), 
-    axis.title.x = element_text(color="#000033", size=18), 
-    axis.title.y = element_text(color="#000033", size=18, vjust=2),
-    legend.title=element_blank(),
-    legend.text = element_text(colour="#000033", size = 18)
-  ) + facet_wrap(~MSA)
-
-ggplot(data=portland, aes(Date, Home.Value1)) + geom_point(aes(color=MSA)) + 
+ggplot(data=portland, aes(Date1, Home.Value1)) + geom_line(aes(color=MSA)) + 
   theme(
     plot.title = element_text(size=20, face="bold", vjust=3, color="#000033"), 
     axis.text.x = element_text(size=12, angle = 90, hjust = 1, color="#000033"), 
