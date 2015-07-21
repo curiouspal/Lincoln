@@ -53,7 +53,7 @@ ggplot(data=allcities, aes(Date1, as.numeric(Land.Price.Index))) + geom_line() +
     axis.title.x = element_text(color="#000033", size=18), 
     axis.title.y = element_text(color="#000033", size=18, vjust=2),
     legend.title=element_blank(),
-    legend.text = element_text(colour="#000033", size = 18)
+    legend.text = element_text(colour="#000033", size = 9)
   ) + facet_wrap(~MSA)
 
 
@@ -65,7 +65,7 @@ ggplot(data=allcities, aes(Date1, as.numeric(Home.Price.Index))) + geom_line() +
     axis.title.x = element_text(color="#000033", size=18), 
     axis.title.y = element_text(color="#000033", size=18, vjust=2),
     legend.title=element_blank(),
-    legend.text = element_text(colour="#000033", size = 18)
+    legend.text = element_text(colour="#000033", size = 9)
   ) + facet_wrap(~MSA)
 
 ggplot(data=allcities, aes(Date1, Land.Share1)) + geom_line() + 
@@ -76,7 +76,7 @@ ggplot(data=allcities, aes(Date1, Land.Share1)) + geom_line() +
     axis.title.x = element_text(color="#000033", size=18), 
     axis.title.y = element_text(color="#000033", size=18, vjust=2),
     legend.title=element_blank(),
-    legend.text = element_text(colour="#000033", size = 18)
+    legend.text = element_text(colour="#000033", size = 9)
   ) + facet_wrap(~MSA)
 
 
@@ -89,7 +89,7 @@ ggplot(data=allcities, aes(Date1, Home.Value1)) + geom_line() +
     axis.title.x = element_text(color="#000033", size=18), 
     axis.title.y = element_text(color="#000033", size=18, vjust=2),
     legend.title=element_blank(),
-    legend.text = element_text(colour="#000033", size = 18)
+    legend.text = element_text(colour="#000033", size = 9)
   ) + facet_wrap(~MSA)
 
 ggplot(data=portland, aes(Date1, Home.Value1)) + geom_line(aes(color=MSA)) + 
@@ -100,7 +100,7 @@ ggplot(data=portland, aes(Date1, Home.Value1)) + geom_line(aes(color=MSA)) +
     axis.title.x = element_text(color="#000033", size=18), 
     axis.title.y = element_text(color="#000033", size=18, vjust=2),
     legend.title=element_blank(),
-    legend.text = element_text(colour="#000033", size = 18)
+    legend.text = element_text(colour="#000033", size = 9)
   ) 
 
 ggplot(data=portland, aes(Date1, Land.Value1)) + geom_line(aes(color=MSA)) + 
@@ -111,7 +111,7 @@ ggplot(data=portland, aes(Date1, Land.Value1)) + geom_line(aes(color=MSA)) +
     axis.title.x = element_text(color="#000033", size=18), 
     axis.title.y = element_text(color="#000033", size=18, vjust=2),
     legend.title=element_blank(),
-    legend.text = element_text(colour="#000033", size = 18)
+    legend.text = element_text(colour="#000033", size = 9)
   ) 
 
 ggplot(data=portland, aes((Date1), (Land.Share1))) + geom_line(stat="identity", aes(color=MSA)) + 
@@ -122,7 +122,7 @@ ggplot(data=portland, aes((Date1), (Land.Share1))) + geom_line(stat="identity", 
     axis.title.x = element_text(color="#000033", size=18), 
     axis.title.y = element_text(color="#000033", size=18, vjust=2),
     legend.title=element_blank(),
-    legend.text = element_text(colour="#000033", size = 18)
+    legend.text = element_text(colour="#000033", size = 9)
   ) 
 
 
@@ -135,7 +135,7 @@ g <- ggplot(data=allcities, aes((Date1), (Home.Value1))) + geom_line(stat="ident
     axis.title.x = element_text(color="#000033", size=18), 
     axis.title.y = element_text(color="#000033", size=18, vjust=2),
     legend.title=element_blank(),
-    legend.text = element_text(colour="#000033", size = 18)
+    legend.text = element_text(colour="#000033", size = 9)
   ) 
 
 g + geom_line(data=portland, aes(color=MSA, size=3))
