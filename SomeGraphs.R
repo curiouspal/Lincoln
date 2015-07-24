@@ -114,7 +114,7 @@ ggplot(data=portland, aes(Date1, Land.Value1)) + geom_line(aes(color=MSA)) +
     legend.text = element_text(colour="#000033", size = 9)
   ) 
 
-ggplot(data=portland, aes((Date1), (Land.Share1))) + geom_line(stat="identity", aes(color=MSA)) + 
+ggplot(data=portland, aes((Date1), (Land.Share1))) + geom_line(stat="identity", size=2, aes(color=MSA)) + 
   theme(
     plot.title = element_text(size=20, face="bold", vjust=3, color="#000033"), 
     axis.text.x = element_text(size=12, angle = 90, hjust = 1, color="#000033"), 
